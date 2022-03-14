@@ -1,6 +1,9 @@
-const Header = () => {
+const Header = ({ setKeyword }) => {
+	const handleChange = (e) => {
+		setKeyword(e.target.value);
+	};
 	return (
-		<header>
+		<header className="mt-4">
 			<div className="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
 				<a href="/" className="d-flex align-items-center text-dark text-decoration-none">
 					<svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" className="me-2" viewBox="0 0 118 94" role="img">
@@ -29,6 +32,11 @@ const Header = () => {
 						Pricing
 					</a>
 				</nav>
+
+				<form className="d-flex ms-2">
+					<input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange={handleChange} />
+					<button className="btn btn-outline-success" type="submit">Search</button>
+				</form>
 			</div>
 
 			<div className="pricing-header p-3 pb-md-4 mx-auto text-center">
