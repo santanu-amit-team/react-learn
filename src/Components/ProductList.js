@@ -24,7 +24,7 @@ const SingleProduct = ({ Product }) => {
 					<h1 className="card-title pricing-card-title">${Product.price}</h1>
 					<p className="product-desc"> {Product.description}</p>
 					<button type="button" className="w-100 btn btn-lg btn-primary">
-						Add To Cart
+						Add To Cart Test
 					</button>
 				</div>
 			</div>
