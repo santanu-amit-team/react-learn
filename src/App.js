@@ -17,7 +17,15 @@ const App = () => {
 
 	const addCartItem = id => {
 		const item = Products.find(Product => Product.id === id);
-		setCartItems(items => [...items, item]);
+		setCartItems(items => {
+			const IsExists = items.find(Citem => Citem.id === id);
+			if (IsExists) {
+				return items.map(Citem => Citem.id === id ? ({ ...item, qty: Citem.qty + 1 }) : Citem);
+			} else {
+				return [...items, { ...item, qty: 1 }];
+			}
+
+		});
 	}
 	return (
 		<div className="App">

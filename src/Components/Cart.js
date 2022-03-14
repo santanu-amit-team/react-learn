@@ -2,16 +2,18 @@ const CartItem = ({ CartProduct }) => {
 	return (
 		<li className="list-group-item d-flex justify-content-between lh-sm">
 			<div>
-				<h6 className="my-0">{CartProduct.tittle}</h6>
+
+				<h6 className="my-0">{CartProduct.tittle} (x{CartProduct.qty})</h6>
 				<small className="text-muted">{CartProduct.description}</small>
 			</div>
 			<span className="text-muted">${CartProduct.price}</span>
+			<button className="btn btn-outline-danger btn-sm">X</button>
 		</li>
 	);
 }
 const Cart = ({ CartItems }) => {
 	const total = CartItems.reduce((sum, cur) => {
-		let price = parseFloat(sum) + parseFloat(cur.price);
+		let price = parseFloat(sum) + (parseFloat(cur.price) * cur.qty);
 		return price.toFixed(2);
 	}, 0);
 
